@@ -2,57 +2,42 @@
 import streamlit as st
 
 def load_page():
-    st.markdown(
-        """
-        ## Practical Statistics for Data Scientists
+    # Title and Description
+    st.title("Practical Statistics for Data Scientists")
+    st.write("Personal notes and study resources based on the O'Reilly book.")
 
-        Personal notes and study using the book Practical Statistics for Data Scientists from O'Reilly publisher.
+    # GitHub Repository Link
+    st.markdown("**Main GitHub Repository**: [View on GitHub](https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master)")
 
-        - **Main GitHub Repository**: [Practical Statistics for Data Scientists](https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master)
+    # Chapter Details
+    st.header("Chapter 1: Exploratory Data Analysis")
+    st.markdown("- [Jupyter Notebook for Chapter 1](https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%201%20-%20Exploratory%20Data%20Analysis.ipynb)")
 
-        ### Chapter 1: Exploratory Data Analysis
+    # Key Concepts
+    st.subheader("Key Concepts")
+    st.markdown("""
+    - **Inference**: Drawing conclusions from data.
+    - **Data Types**: Numerical (continuous/discrete), Categorical (binary, ordinal).
+    - **Pandas Variable Types**: [Pandas Documentation](https://pandas.pydata.org/docs/user_guide/basics.html#dtypes)
+    """)
 
-        - [Jupyter Notebook for Chapter 1](https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%201%20-%20Exploratory%20Data%20Analysis.ipynb)
+    # Estimates of Data
+    st.subheader("Estimates of Data: Metrics")
+    st.markdown("""
+    - Central Tendency: Understanding the 'typical value.'
+    - Metrics: Mean, Weighted Mean, Median, Percentile, etc.
+    """)
 
-        #### Key Concepts
+    # Displaying LaTeX Equations
+    st.latex(r"\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i")  # Mean
+    st.latex(r"\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}")  # Weighted Mean
 
-        - **Inference**: Making conclusions from data.
-        - **Types of Data**:
-          - Numerical (continuous and discrete)
-          - Categorical (set values, binary, ordinal, etc)
-        - **Pandas Variable Types**: [Documentation](https://pandas.pydata.org/docs/user_guide/basics.html#dtypes)
-
-        #### Estimates of Data: Metrics
-
-        - **Central Tendency**: Understanding the "typical value."
-        - Metrics include:
-          - **Mean**: 
-          
-          $$
-          \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
-          $$
-
-          - **Weighted Mean**: 
-          
-          $$
-          \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
-          $$
-
-          - **Median**: The middle value.
-          - **Percentile**: Value below which a given percentage falls.
-          - **Weighted Median**: Median considering weights.
-          - **Trimmed Mean**: Mean after removing extreme values.
-          - **Robust Metrics**: Metrics less sensitive to outliers.
-          - **Outlier Detection**: Identifying extreme values.
-
-        #### When to Use Trimmed and Weighted Mean
-
-        - **Trimmed Mean**: Useful for handling extreme values.
-        - **Weighted Mean**: Useful when:
-          1. Some values are more variable than others.
-          2. Data collected does not equally represent different groups.
-        """
-    )
+    # When to Use Trimmed and Weighted Mean
+    st.subheader("When to Use Trimmed and Weighted Mean")
+    st.markdown("""
+    - **Trimmed Mean**: Effective for extreme values.
+    - **Weighted Mean**: Best when data points have varying importance or representativeness.
+    """)
 
 if __name__ == "__main__":
     load_page()
