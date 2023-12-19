@@ -13,10 +13,10 @@ def load_page():
                                                                "Gaussian Processes"])
 
     if project_selection == "Practical Statistics":
-        hugging_face.load_page()
+        practical_statistics.load_page()
         
     elif project_selection == "Hugging Face":
-        gaussian_processes.load_page()
+        hugging_face.load_page()
 
     elif project_selection == "Gaussian Processes":
         gaussian_processes.load_page()
