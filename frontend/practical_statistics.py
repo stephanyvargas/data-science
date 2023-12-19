@@ -26,8 +26,18 @@ def load_page():
 
         - **Central Tendency**: Understanding the "typical value."
         - Metrics include:
-          - **Mean**: $ \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i $
-          - **Weighted Mean**: $ \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i} $
+          - **Mean**: 
+          
+          $$
+          \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+          $$
+
+          - **Weighted Mean**: 
+          
+          $$
+          \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+          $$
+
           - **Median**: The middle value.
           - **Percentile**: Value below which a given percentage falls.
           - **Weighted Median**: Median considering weights.
@@ -43,3 +53,6 @@ def load_page():
           2. Data collected does not equally represent different groups.
         """
     )
+
+if __name__ == "__main__":
+    load_page()
