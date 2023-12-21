@@ -29,10 +29,16 @@ def load_page():
           - **Mean**: 
             - Description: The mean, or average, is the sum of all values divided by their count.
             - Equation: 
+    """)
               st.latex(r"\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i")
+    st.markdown(
+        """
           - **Weighted Mean**: 
-            - Equation:
+            - Equation: """)
+
               st.latex(r"\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i})
+    st.markdown(
+        """
           - **Median**: The point where your data splits in half.
           - **Weighted Median**: A tailored median giving more weight to certain values.
           - **Percentile**: Benchmarking values in a percentage scale.
@@ -53,8 +59,10 @@ def load_page():
 
         - **Mean Absolute Deviation (MAD)**:
           - Description: The average distance between each data point and the mean.
-          - Equation:
+          - Equation:""")
             st.latex(r"MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|)
+    st.markdown(
+        """
         - **Variance**:
           - Description: The average of the squared differences from the Mean.
           - Equation:
