@@ -29,18 +29,14 @@ def load_page():
           - **Mean**: 
             - Description: The mean, or average, is the sum of all values divided by their count.
             - Equation: 
-            
-              $$
+              ```
               \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
-              $$
-          
+              ```
           - **Weighted Mean**: 
-          
             - Equation:
-              $$
+              ```
               \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
-              $$
-              
+              ```
           - **Median**: The point where your data splits in half.
           - **Weighted Median**: A tailored median giving more weight to certain values.
           - **Percentile**: Benchmarking values in a percentage scale.
@@ -48,12 +44,49 @@ def load_page():
           - **Robust Metrics**: Metrics resistant to outliers' impact.
           - **Outlier Detection**: Spotting the anomalies that can sway your insights.
 
-        #### Tailoring Averages: Trimmed and Weighted Mean
+        ##### Tailoring Averages: Trimmed and Weighted Mean
 
         - **Trimmed Mean**: Ideal for mitigating the effect of outliers. Often involves excluding the top and bottom 10%.
         - **Weighted Mean**: Essential when:
           1. Variability matters in your values.
           2. Achieving representation across diverse groups.
+
+        #### Estimates of Variability
+
+        *Variability*, also referred to as *dispersion*, measures whether the data values are tightly clustered or spread out.
+
+        - **Mean Absolute Deviation (MAD)**:
+          - Description: The average distance between each data point and the mean.
+          - Equation:
+            ```
+            MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|
+            ```
+        - **Variance**:
+          - Description: The average of the squared differences from the Mean.
+          - Equation:
+            ```
+            \sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2
+            ```
+        - **Standard Deviation**:
+          - Description: The square root of the variance, providing a measure of the spread of a distribution.
+          - Equation:
+            ```
+            \sigma = \sqrt{\sigma^2}
+            ```
+        - **Median Absolute Deviation from the Median (MAD Median)**:
+          - Description: Median of the absolute deviations from the median of the dataset.
+          - Equation:
+            ```
+            MAD_{\text{Median}} = \text{Median}(|x_i - \text{Median}(x)|)
+            ```
+        - **Percentiles**:
+          - Description: The value below which a given percentage of observations in a group of observations fall.
+        - **Interquartile Range (IQR)**:
+          - Description: Measures the spread of the middle 50% of the data.
+          - Equation:
+            ```
+            IQR = Q_3 - Q_1
+            ```
         """
     )
 
