@@ -24,19 +24,23 @@ def load_page():
 
         #### Data Metrics: The Heart of Analysis
 
-        - **Central Tendency**: Unveiling the 'heart' of your data.
+        - **Central Tendency**: Unveiling the 'heart' of your data. Discussion on various measures of location [here](https://en.wikipedia.org/wiki/Central_tendency)
         - Key Metrics:
           - **Mean**: 
             - Description: The mean, or average, is the sum of all values divided by their count.
             - Equation: 
+            
               $$
               \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
               $$
+          
           - **Weighted Mean**: 
+          
             - Equation:
               $$
               \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
               $$
+              
           - **Median**: The point where your data splits in half.
           - **Weighted Median**: A tailored median giving more weight to certain values.
           - **Percentile**: Benchmarking values in a percentage scale.
