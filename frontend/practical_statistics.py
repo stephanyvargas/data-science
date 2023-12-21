@@ -29,14 +29,10 @@ def load_page():
           - **Mean**: 
             - Description: The mean, or average, is the sum of all values divided by their count.
             - Equation: 
-              ```
-              \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
-              ```
+              st.latex(r"\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i")
           - **Weighted Mean**: 
             - Equation:
-              ```
-              \bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
-              ```
+              st.latex(r"\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i})
           - **Median**: The point where your data splits in half.
           - **Weighted Median**: A tailored median giving more weight to certain values.
           - **Percentile**: Benchmarking values in a percentage scale.
@@ -58,35 +54,25 @@ def load_page():
         - **Mean Absolute Deviation (MAD)**:
           - Description: The average distance between each data point and the mean.
           - Equation:
-            ```
-            MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|
-            ```
+            st.latex(r"MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|)
         - **Variance**:
           - Description: The average of the squared differences from the Mean.
           - Equation:
-            ```
-            \sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2
-            ```
+            st.latex(r"\sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2)
         - **Standard Deviation**:
           - Description: The square root of the variance, providing a measure of the spread of a distribution.
           - Equation:
-            ```
-            \sigma = \sqrt{\sigma^2}
-            ```
+            st.latex(r"\sigma = \sqrt{\sigma^2})
         - **Median Absolute Deviation from the Median (MAD Median)**:
           - Description: Median of the absolute deviations from the median of the dataset.
           - Equation:
-            ```
-            MAD_{\text{Median}} = \text{Median}(|x_i - \text{Median}(x)|)
-            ```
+            st.latex(r"MAD_{\text{Median}} = \text{Median}(|x_i - \text{Median}(x)|))
         - **Percentiles**:
           - Description: The value below which a given percentage of observations in a group of observations fall.
         - **Interquartile Range (IQR)**:
           - Description: Measures the spread of the middle 50% of the data.
           - Equation:
-            ```
-            IQR = Q_3 - Q_1
-            ```
+            st.latex(r"IQR = Q_3 - Q_1)
         """
     )
 
