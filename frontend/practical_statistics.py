@@ -47,7 +47,22 @@ def load_page():
         """
           - **Median**: The point where your data splits in half.
           - **Weighted Median**: A tailored median giving more weight to certain values.
-          - **Percentile**: Benchmarking values in a percentage scale.
+          - **Percentile**: Benchmarking values in a percentage scale. Formally the percentille is a weighted average that can be calculates as in the following equation. [numpy.quantile](https://numpy.org/doc/stable/reference/generated/numpy.quantile.html) supports 9 methods to use for estimating the quantile.    
+          """
+        )
+    
+    st.latex(r"100 * \frac{j}{n} \leq P < 100 * \frac{j+1}{n}")
+    
+    st.markdown(
+        """
+          - **Interquartile Range**: also known as IQR. Is a common measurement of variability that takes the difference between the 25th and 75th percentiles.Measures the spread of the middle 50% of the data.
+        """
+    )
+
+    st.latex(r"IQR = Q_3 - Q_1")
+    
+    st.markdown(
+        """
           - **Trimmed Mean**: Averaging by removing data extremes.
           - **Robust Metrics**: Metrics resistant to outliers' impact.
           - **Outlier Detection**: Spotting the anomalies that can sway your insights.
@@ -63,15 +78,15 @@ def load_page():
 
         *Variability*, also referred to as *dispersion*, measures whether the data values are tightly clustered or spread out.
 
-        - **Mean Absolute Deviation (MAD)**:
-          - Description: The average distance between each data point and the mean.
+        - **Mean Absolute Deviation (MAD)**: The average distance between each data point and the mean.
         """
         )
-        st.latex(r"MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|")
+    
+    st.latex(r"MAD = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|")
+    
     st.markdown(
         """
-        - **Variance**:
-          - Description: The average of the squared differences from the Mean.
+        - **Variance**: The average of the squared differences from the Mean.
         """
         )
 
@@ -79,8 +94,7 @@ def load_page():
 
     st.markdown(
         """
-        - **Standard Deviation**:
-          - Description: The square root of the variance, providing a measure of the spread of a distribution.
+        - **Standard Deviation**: The square root of the variance, providing a measure of the spread of a distribution.
         """
     )
 
@@ -88,23 +102,22 @@ def load_page():
 
     st.markdown(
         """
-        - **Median Absolute Deviation from the Median (MAD Median)**:
-          - Description: Median of the absolute deviations from the median of the dataset.
+        - **Median Absolute Deviation from the Median (MAD Median)**: Median of the absolute deviations from the median of the dataset.
         """
     )
 
     st.latex(r"MAD_{\text{Median}} = \text{Median}(|x_i - \text{Median}(x)|)")
-
+    
     st.markdown(
         """
-        - **Percentiles**:
-          - Description: The value below which a given percentage of observations in a group of observations fall.
-        - **Interquartile Range (IQR)**:
-          - Description: Measures the spread of the middle 50% of the data.
-        """
-    )
+        #### Exploring the Data Distribution
 
-    st.latex(r"IQR = Q_3 - Q_1")
+        - **Boxplot** : visualize the distribution of data. In Matplotlib, the outside box dashed lines (whiskers) will extend to the furthest point beyond the box up to 1.5 times the IQR. Any data outside the whiskers is plotted as a single point (often considered an outlier).
+        - **Frequency table**: tally the numeric data into sets of intervals or bins.
+        - **Histogram**: plot of the frequency table.
+        - ** Density plot**: smoothed version of the histogram, often based on a kernel density estimate.
+        """
+        )
 
 if __name__ == "__main__":
     load_page()
