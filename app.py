@@ -8,8 +8,8 @@ def main():
 
     if tab1:  # Home tab
         st.title("Welcome to My Data Science Portfolio")
-        st.image("data-visualization.jpg")  # Replace with your image
-        st.write("I'm a data science enthusiast with a passion for ...") 
+        #st.image("data-visualization.jpg")  # Replace with your image
+        #st.write("I'm a data science enthusiast with a passion for ...") 
         st.button("View Projects")
         st.button("Learn More About Me")
 
