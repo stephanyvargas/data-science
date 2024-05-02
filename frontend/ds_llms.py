@@ -11,4 +11,4 @@ def load_page():
         project_selection = st.radio("", ["Hugging Face"])
 
     if project_selection == "Hugging Face":
-        practical_statistics.load_page()
+        hugging_face.load_page()
