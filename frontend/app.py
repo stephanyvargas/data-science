@@ -1,7 +1,6 @@
 # app.py
 import streamlit as st
-import projects
-import aboutme
+from frontend import projects, aboutme
 
 # Page Config
 st.set_page_config(page_title="Data Science Portfolio", layout="wide")
