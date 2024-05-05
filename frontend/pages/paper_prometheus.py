@@ -48,7 +48,7 @@ def load_page():
     """)
 
     st.latex("""
-    f_{\rm direct} : (i, r) \rightarrow s \quad {\rm where } \quad s \in \mathbb(R)
+    f_\textrm{direct} : (i, r) \quad \longrightarrow \quad s \qquad \textrm{where} \qquad s \in \mathbb(R)
     """)
     st.markdown("""
     Pairwise ranking: Takes an instruction, two responses, optionally a reference answer and evaluation criteria, and outputs which response is better.
