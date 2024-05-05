@@ -25,7 +25,7 @@ def load_page():
     - Affordability: If you already have GPUs, it is free to use!
     """)
     
-    st.markdown(r"""
+    st.markdown("""
     ### Introduction
     - Existing methods for evaluating large language models (LLMs) are not sufficient due to the complexity of LLM outputs.
     - Language model-based evaluation is a promising solution, where LMs assess other LMs' outputs. 
@@ -45,19 +45,24 @@ def load_page():
     ### Methodology
     - **Direct Assessment** and **Pairwise Ranking** 
         - Direct assessment: Takes an instruction, response, and optionally a reference answer and evaluation criteria as input, and outputs a score (1-5 Likert scale).
-        
-Pairwise ranking: Takes an instruction, two responses, optionally a reference answer and evaluation criteria, and outputs which response is better.
-3.3 The Preference Collection: Describes a new dataset created for training evaluator LMs on pairwise ranking with fine-grained evaluation criteria. Key points:
-Based on the FEEDBACK COLLECTION dataset used for direct assessment.
-Includes 1,000 custom evaluation criteria beyond general ones like helpfulness.
-Created by pairing responses from the FEEDBACK COLLECTION and generating new verbal feedback comparing them using GPT-4.
-3.4 Employing Evaluator Language Models: Explains four methods for training evaluator LMs. Key points:
-Prompting: Using an LM to make judgements without training.
-Single-Format Training: Training on data for either direct assessment or pairwise ranking.
-Joint Training: Training on data for both direct assessment and pairwise ranking.
-Weight Merging: Training separate LMs for each task and then combining their weights (focusing on this method).
-Linear merging with a coefficient of 0.5 is found to work best with Mistral-7B base model.
-Other merging techniques (Task Arithmetic, TIES, DARE) are also explored.
+    """)
+
+    st.latex("""
+    f_{\rm direct} : (i, r) \rightarrow s \quad {\rm where } \quad s \in \mathbb(R)
+    """)
+    st.markdown("""
+    Pairwise ranking: Takes an instruction, two responses, optionally a reference answer and evaluation criteria, and outputs which response is better.
+    3.3 The Preference Collection: Describes a new dataset created for training evaluator LMs on pairwise ranking with fine-grained evaluation criteria. Key points:
+    Based on the FEEDBACK COLLECTION dataset used for direct assessment.
+    Includes 1,000 custom evaluation criteria beyond general ones like helpfulness.
+    Created by pairing responses from the FEEDBACK COLLECTION and generating new verbal feedback comparing them using GPT-4.
+    3.4 Employing Evaluator Language Models: Explains four methods for training evaluator LMs. Key points:
+    Prompting: Using an LM to make judgements without training.
+    Single-Format Training: Training on data for either direct assessment or pairwise ranking.
+    Joint Training: Training on data for both direct assessment and pairwise ranking.
+    Weight Merging: Training separate LMs for each task and then combining their weights (focusing on this method).
+    Linear merging with a coefficient of 0.5 is found to work best with Mistral-7B base model.
+    Other merging techniques (Task Arithmetic, TIES, DARE) are also explored.
     """)
         
 if __name__ == "__main__":
