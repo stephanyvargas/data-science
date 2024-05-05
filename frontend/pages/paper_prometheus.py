@@ -52,6 +52,7 @@ def load_page():
     """)
     
     st.markdown("""
+      
         - Pairwise ranking: Takes an instruction, two responses, optionally a reference answer and evaluation criteria, and outputs which response is better.
     """)
 
