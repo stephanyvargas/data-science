@@ -76,7 +76,10 @@ def load_page():
 
         st.write("**Task Arithmetic merging**")
         st.latex("""
-        \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
+        \theta_{final} = (i, r) \quad \longrightarrow \quad s \qquad {where} \qquad s \in \mathbb{R}, \quad s \in  \{1,2,3,4,5\}
+        """)
+        st.latex("""
+        \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
 
         st.markdown("""
@@ -84,6 +87,11 @@ def load_page():
         - Benchmarks:
             - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
             - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
+        - Metrics:
+            - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
+            - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
+
+        ### Baselines:
         """)
     
         # \st.markdown("""
@@ -91,11 +99,11 @@ def load_page():
         # 
         #     
         #     
-        # - Metrics:
-        #     - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
-        # - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
+        # 
+        #     
+        # 
         
-        # ### Baselines:
+        #
         # - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
         # - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
         # - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
