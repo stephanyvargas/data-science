@@ -23,7 +23,7 @@ def load_page():
         code, and data are all publicly available in [https://github.com/prometheus-eval/prometheus-eval](https://github.com/prometheus-eval/prometheus-eval).
         """)
         
-        st.image("frontend/pages/prometheus_1.png", caption=None, width=400) 
+        st.image("frontend/pages/prometheus_1.png", caption=None) 
 
         st.markdown("""
         ### Introduction
