@@ -76,8 +76,7 @@ def load_page():
        Task Arithmetic merging: \qquad \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
     
-        \st.markdown("""
-        ### Benchmarks and Metrics:
+        \st.markdown("""### Benchmarks and Metrics:
         - Benchmarks:
             - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
             - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
