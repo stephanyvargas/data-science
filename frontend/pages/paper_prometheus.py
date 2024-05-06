@@ -68,16 +68,15 @@ def load_page():
                 - Other merging techniques (Task Arithmetic, TIES, DARE) are also explored.
         """)
 
+        st.write("**Weight Merging**")
         st.latex("""
-        f_{direct} : (i, r) \quad \longrightarrow \quad s \qquad {where} \qquad s \in \mathbb{R}, \quad s \in  \{1,2,3,4,5\}
+        \theta_{final} = \alpha \times \theta_d + (1 − \alpha) \times \theta_p
         """)
-        
+
+
+        st.write("**Task Arithmetic merging**")
         st.latex("""
-        Weight Merging: \qquad \theta_{final} = \alpha \times \theta_d + (1 − \alpha) \times \theta_p
-        """)
-    
-        st.latex("""
-       Task Arithmetic merging: \qquad \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
+        \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
 
         st.markdown("""
