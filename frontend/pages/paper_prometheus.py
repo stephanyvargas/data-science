@@ -69,17 +69,14 @@ def load_page():
         """)
 
         st.write("**Weight Merging**")
-        st.latex("""
+        st.latex(r"""
         \theta_{final} = \alpha \times \theta_d + (1 − \alpha) \times \theta_p
         """)
 
 
         st.write("**Task Arithmetic merging**")
-        st.latex("""
-        \theta_{final} = (i, r) \quad \longrightarrow \quad s \qquad {where} \qquad s \in \mathbb{R}, \quad s \in  \{1,2,3,4,5\}
-        """)
-        st.latex("""
-        \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
+        st.latex(r"""
+        \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
 
         st.markdown("""
@@ -92,24 +89,13 @@ def load_page():
             - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
 
         ### Baselines:
+        - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
+        - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
+        - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
+        - Jointly Trained LMs: Evaluator LMs trained on both direct assessment and pairwise ranking (e.g., Auto-J).
+        - Weight Merging: PROMETHEUS 2 (7B & 8x7B) - the models being evaluated in this experiment.
         """)
     
-        # \st.markdown("""
-        # 
-        # 
-        #     
-        #     
-        # 
-        #     
-        # 
-        
-        #
-        # - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
-        # - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
-        # - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
-        # - Jointly Trained LMs: Evaluator LMs trained on both direct assessment and pairwise ranking (e.g., Auto-J).
-        # - Weight Merging: PROMETHEUS 2 (7B & 8x7B) - the models being evaluated in this experiment.
-        # """)
         
     with tab2:
         st.markdown("""
