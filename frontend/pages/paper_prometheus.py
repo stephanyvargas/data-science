@@ -23,6 +23,8 @@ def load_page():
         code, and data are all publicly available in [https://github.com/prometheus-eval/prometheus-eval](https://github.com/prometheus-eval/prometheus-eval).
         """)
         
+        st.image("prometheus_1.jpg", caption=None, width=400) 
+
         st.markdown("""
         ### Introduction
         - Existing methods for evaluating large language models (LLMs) are not sufficient due to the complexity of LLM outputs.
@@ -35,7 +37,11 @@ def load_page():
         - This paper proposes a new method that combines evaluator LMs trained on both direct assessment and pairwise ranking tasks.
         - PROMETHEUS 2, achieves high correlations with human evaluators and outperforms other open-source LMs. 
         - To train PROMETHEUS 2, a new dataset called PREFERENCE COLLECTION is introduced, which includes more diverse evaluation criteria.
-    
+        """)
+        
+        st.image("prometheus_2.jpg", caption=None) 
+
+        st.markdown("""
         ### Related Work
         - LM-based evaluation is a promising alternative to traditional metrics (Rouge, BLEU, BERTScore) that struggle to capture quality beyond similarity to a reference answer.
         - Weight merging has been shown to improve performance in various NLP tasks, and this work applies it to enhance evaluator LMs.
@@ -80,7 +86,7 @@ def load_page():
         """)
 
         st.markdown("""
-        ### Benchmarks and Metrics:
+        ### Benchmarks and Metrics
         - Benchmarks:
             - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
             - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
@@ -88,12 +94,34 @@ def load_page():
             - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
             - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
 
-        ### Baselines:
+        ### Baselines
         - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
         - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
         - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
         - Jointly Trained LMs: Evaluator LMs trained on both direct assessment and pairwise ranking (e.g., Auto-J).
         - Weight Merging: PROMETHEUS 2 (7B & 8x7B) - the models being evaluated in this experiment.
+
+        ### Experimental Results
+        - Direct Assessment Results:
+            - PROMETHEUS 2 (7B & 8x7B) achieves high correlations (over 0.5) with human evaluators and GPT-4/Claude-3-Opus (proprietary LMs).
+            - Other baselines (LM prompting, single-format, jointly trained) show lower correlations (mostly below 0.5).
+            - PROMETHEUS 2 outperforms previous models (Prometheus, Auto-J) by a significant margin (at least 0.2) on most benchmarks.
+            - On the FLASK benchmark, PROMETHEUS 2-8X7B significantly narrows the gap between human and LM performance compared to Prometheus.
+
+        - Pairwise Ranking Results:
+            - PROMETHEUS 2 models achieve the highest accuracy on all four benchmarks, effectively mimicking human judgement.
+            - PROMETHEUS 2-8X7B outperforms other models even on benchmarks designed for specific baselines (HHH Alignment for Pair RM, Auto-J Eval for Auto-J). This suggests the effectiveness of training on a large LM (Mixtral-8x7B).
+            - Including results for other models (Pair RM, Ultra RM) is limited because they cannot handle "tie" options in some settings.
+
+        ### Discussion
+        - Research Questions:
+            - RQ1: Weight Merging vs. Joint Training.
+            - RQ2: Effectiveness due to Model Ensembling.
+            - RQ3: Transfer Between Direct Assessment and Pairwise Ranking.
+
+        - **RQ1:** Weight merging outperforms both joint training and single-format training on most benchmarks. It suggests positive transfer of knowledge between direct assessment and pairwise ranking tasks.
+        - **RQ2:** Weight merging is not simply model ensembling. Merging models trained on the same task shows no improvement or even harms performance.
+        - **RQ3:** Direct assessment and pairwise ranking data benefit each other during training. However, pairwise ranking data seems to contribute more to improving direct assessment performance.
         """)
     
         
@@ -105,6 +133,8 @@ def load_page():
         - Controllability: You don’t have to worry about GPT version updates or sending your private data to OpenAI by constructing internal evaluation pipelines
         - Affordability: If you already have GPUs, it is free to use!
         """)
+
+        st.image("prometheus_3.jpg", caption=None) 
         
 if __name__ == "__main__":
     load_page()
