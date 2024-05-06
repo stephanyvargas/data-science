@@ -23,7 +23,7 @@ def load_page():
         code, and data are all publicly available in [https://github.com/prometheus-eval/prometheus-eval](https://github.com/prometheus-eval/prometheus-eval).
         """)
         
-        st.image("prometheus_1.jpg", caption=None, width=400) 
+        st.image("prometheus_1.png", caption=None, width=400) 
 
         st.markdown("""
         ### Introduction
@@ -39,7 +39,7 @@ def load_page():
         - To train PROMETHEUS 2, a new dataset called PREFERENCE COLLECTION is introduced, which includes more diverse evaluation criteria.
         """)
         
-        st.image("prometheus_2.jpg", caption=None) 
+        st.image("prometheus_2.png", caption=None) 
 
         st.markdown("""
         ### Related Work
@@ -134,7 +134,7 @@ def load_page():
         - Affordability: If you already have GPUs, it is free to use!
         """)
 
-        st.image("prometheus_3.jpg", caption=None) 
+        st.image("prometheus_3.png", caption=None) 
         
 if __name__ == "__main__":
     load_page()
