@@ -76,13 +76,14 @@ def load_page():
        Task Arithmetic merging: \qquad \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
     
-        \st.markdown("""### Benchmarks and Metrics:
+        \st.markdown("""
+        ### Benchmarks and Metrics:
         - Benchmarks:
             - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
             - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
         - Metrics:
             - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
-        - Pairwise ranking: Accuracy against human judgement (with and without "tie" options).
+        - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
         
         ### Baselines:
         - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
