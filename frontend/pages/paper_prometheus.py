@@ -75,23 +75,46 @@ def load_page():
         st.latex("""
        Task Arithmetic merging: \qquad \theta_{final} = \theta_{init} + \alpha \times (\theta_d-\theta_{init}) + (1 − \alpha) \times (\theta_d-\theta_{init})
         """)
+
+        st.markdown("""
+        ### Introduction
+        - Existing methods for evaluating large language models (LLMs) are not sufficient due to the complexity of LLM outputs.
+        - Language model-based evaluation is a promising solution, where LMs assess other LMs' outputs. 
+        - This approach can be done in two ways: 
+                - direct assessment (giving a quality score) or 
+                - pairwise ranking (determining which of two outputs is better).
+        - Proprietary LMs are often used for evaluation, but they lack transparency and can be expensive.
+        - Recent work focuses on open-source evaluator LMs, but they struggle to match human evaluation or proprietary LMs.
+        - This paper proposes a new method that combines evaluator LMs trained on both direct assessment and pairwise ranking tasks.
+        - PROMETHEUS 2, achieves high correlations with human evaluators and outperforms other open-source LMs. 
+        - To train PROMETHEUS 2, a new dataset called PREFERENCE COLLECTION is introduced, which includes more diverse evaluation criteria.
     
-        \st.markdown("""
-        ### Benchmarks and Metrics:
-        - Benchmarks:
-            - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
-            - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
-        - Metrics:
-            - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
-        - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
-        
-        ### Baselines:
-        - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
-        - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
-        - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
-        - Jointly Trained LMs: Evaluator LMs trained on both direct assessment and pairwise ranking (e.g., Auto-J).
-        - Weight Merging: PROMETHEUS 2 (7B & 8x7B) - the models being evaluated in this experiment.
+        ### Related Work
+        - LM-based evaluation is a promising alternative to traditional metrics (Rouge, BLEU, BERTScore) that struggle to capture quality beyond similarity to a reference answer.
+        - Weight merging has been shown to improve performance in various NLP tasks, and this work applies it to enhance evaluator LMs.
+    
+        ### Methodology
+        - **Direct Assessment** and **Pairwise Ranking** 
+            - Direct assessment: Takes an instruction, response, and optionally a reference answer and evaluation criteria as input, and outputs a score (1-5 Likert scale).
+            - Pairwise ranking: Takes an instruction, two responses, optionally a reference answer and evaluation criteria, and outputs which response is better.
         """)
+    
+        # \st.markdown("""
+        # ### Benchmarks and Metrics:
+        # - Benchmarks:
+        #     - Direct assessment: Vicuna Bench, MT Bench, FLASK, Feedback Bench
+        #     - Pairwise ranking: HHH Alignment, MT Bench Human Judgment, Auto-J Eval, Preference Bench
+        # - Metrics:
+        #     - Direct assessment: Pearson, Spearman, Kendall-Tau correlations against reference evaluators.
+        # - Pairwise ranking: Accuracy against human judgement (with and without 'tie' options).
+        
+        # ### Baselines:
+        # - Prompting Baselines: Llama-2-Chat, Mistral-7BInstruct, Mixtral-8x7BInstruct (treat these as baselines although not trained on feedback data).
+        # - Proprietary LMs: GPT-3.5-Turbo-0613, GPT-4-1106, Claude-3-Opus.
+        # - Single-Format Trained LMs: Evaluator LMs trained on either direct assessment or pairwise ranking (e.g., Prometheus, UltraRM, PairRM).
+        # - Jointly Trained LMs: Evaluator LMs trained on both direct assessment and pairwise ranking (e.g., Auto-J).
+        # - Weight Merging: PROMETHEUS 2 (7B & 8x7B) - the models being evaluated in this experiment.
+        # """)
         
     with tab2:
         st.markdown("""
