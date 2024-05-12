@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import hugging_face, paper_prometheus
+from pages import hugging_face, paper_prometheus, language_agent_tree_search
 
 def load_page():
     st.write("## LLMs for Data Science")
@@ -15,3 +15,6 @@ def load_page():
 
     elif project_selection == "Evaluate LLMs: Prometheus2":
         paper_prometheus.load_page()
+
+    elif project_selection == "Llama: Language Agent Tree Search":
+        language_agent_tree_search.load_page()
