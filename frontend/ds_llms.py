@@ -4,6 +4,13 @@ from pages import hugging_face, paper_prometheus, language_agent_tree_search
 def load_page():
     st.write("## LLMs for Data Science")
 
+    st.write(## Papers to get started:
+    
+    - Large Language Models: A Survey: https://www.arxiv.org/abs/2402.06196
+    - A Survey of Large Language Models: https://arxiv.org/abs/2303.18223
+    - A Comprehensive Overview of Large Language Models: https://arxiv.org/abs/2307.06435
+    )
+
     # Projects Expander
     projects_expander = st.expander("Choose a Topic")
 
