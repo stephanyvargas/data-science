@@ -4,6 +4,10 @@ import streamlit as st
 def load_page():
     st.markdown(
         """
+        There are other quite interesting books that I will just leave here for when I have time to check them out
+        - (*Paid*) [Probability: The Science of Uncertainty: with Applications to Investments, Insurance, and Engineering](https://bookstore.ams.org/view?ProductCode=AMSTEXT/6)
+        - (*Free*) [Introduction to Modern Statistics](https://www.openintro.org/book/ims/)
+        
         ## Dive into Data Science: Practical Statistics for Data Scientists
 
         Welcome to an interactive journey through the fascinating world of statistics! Here, I share my personal notes and insights gained from the acclaimed book, "Practical Statistics for Data Scientists" published by O'Reilly.
