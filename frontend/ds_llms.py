@@ -11,7 +11,7 @@ def load_page():
     - A Comprehensive Overview of Large Language Models: https://arxiv.org/abs/2307.06435
 
     ## Books
-    - eBook: State of the Art in GenAI & LLMs — Creative Projects, with Solutions: https://mltechniques.com/product/ebook-state-of-the-art-in-genai-llms-creative-projects-with-solutions/
+    - eBook: State of the Art in GenAI & LLMs, Creative Projects, with Solutions: https://mltechniques.com/product/ebook-state-of-the-art-in-genai-llms-creative-projects-with-solutions/
     )
 
     # Projects Expander
