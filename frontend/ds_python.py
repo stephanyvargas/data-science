@@ -13,5 +13,5 @@ def load_page():
     if project_selection == "Decorators":
         decorators.load_page()
 
-    if project_selection == "Pydantic":
+    elif project_selection == "Pydantic":
         pydantic_use.load_page()
