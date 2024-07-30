@@ -7,6 +7,7 @@ def load_page():
     - [Awesome Materials Informatics](https://github.com/tilde-lab/awesome-materials-informatics)
     - [BestPractices](https://github.com/anthony-wang/BestPractices). Things that you should (and should not) do in your Materials Informatics research.
     - [A Highly Opinionated List of Open-Source Materials Informatics Resources](https://github.com/ncfrey/resources)
+    - [DeepChem](https://deepchem.io/). The DeepChem Book is a step-by-step guide for deep learning in life sciences. It offers essential tools and techniques on machine learning and data handling for beginners looking to apply AI in life sciences.
       """)
     
     # # Projects Expander
