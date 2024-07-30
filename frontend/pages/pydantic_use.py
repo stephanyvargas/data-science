@@ -31,6 +31,9 @@ def load_page():
         last_name: str
     """)
 
+    
+if __name__ == "__main__":
+    load_page()
     st.write("""We can use all the objects from the typing library and Pydantic will validate against them.
              """)
     st.code("""
