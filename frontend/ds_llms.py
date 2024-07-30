@@ -4,7 +4,7 @@ from pages import hugging_face, paper_prometheus, language_agent_tree_search
 def load_page():
     st.write("## LLMs for Data Science")
 
-    st.write("## Papers to get started:
+    st.write("""## Papers to get started:
     
     - Large Language Models: A Survey: https://www.arxiv.org/abs/2402.06196
     - A Survey of Large Language Models: https://arxiv.org/abs/2303.18223
@@ -12,7 +12,7 @@ def load_page():
 
     ## Books
     - eBook: State of the Art in GenAI & LLMs, Creative Projects, with Solutions: https://mltechniques.com/product/ebook-state-of-the-art-in-genai-llms-creative-projects-with-solutions/
-    ")
+    """)
 
     # Projects Expander
     projects_expander = st.expander("Choose a Topic")
