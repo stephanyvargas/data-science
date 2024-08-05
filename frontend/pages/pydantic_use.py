@@ -5,7 +5,7 @@ import time
 
 def load_page():
     # **1. Introduction**
-    st.header("## What is Pydantic?")
+    st.header("What is Pydantic?")
     st.write("Pydantic is Python Dataclasses with validation, serialization and data transformation functions. So you can use Pydantic to check your data is valid. transform data into the shapes you need, and then serialize the results so they can be moved on to other applications.")
     st.write("**A REALLY Basic example**")
     st.code("""
@@ -75,9 +75,11 @@ def load_page():
     """)
 
     st.write("""## Applying Default Values
-                In a standard Python class, if you define a mutable default argument in the __init__ method, it leads to the issue of shared mutable defaults.
+                
+                In a standard Python class, if you define a mutable default argument in the `__init__` method, it leads to the issue of shared mutable defaults.
                 This is a problem and that is with the definition of the list. 
-                If you code a model in this way, only one list object is created and its shared between all instances of this model. The same happens with dictionaries etc.
+                If you code a model in this way, only one list object is created and its shared between all instances of this model. 
+                The same happens with dictionaries etc.
              """)
     st.code("""
             class ProblematicModel:
@@ -139,6 +141,45 @@ def load_page():
                     first_name: str = "jane"
                     middle_names: list = Field(default_factory=list)
                     last_name: str = "doe"
+        """)
+
+    st.write("""## Field Validation 
+    
+    """)
+    st.code("""
+                from pydantic import BaseModel, validator, ValidationError
+                import datetime
+                from typing import Any
+                
+                
+                def stamp2date(value: Any) -> datetime.datetime:
+                    if not isinstance(value, (float, int)):  # Allow both float and int for timestamp
+                        raise ValueError("incoming date must be a timestamp")
+                    try:
+                        res = datetime.datetime.fromtimestamp(value)
+                    except ValueError:
+                        raise ValueError("Time stamp appears to be invalid")
+                    return res
+                
+                
+                class DateModel(BaseModel):
+                    dob: datetime.datetime
+                
+                    @validator('dob', pre=True)
+                    def validate_dob(cls, value):
+                        return stamp2date(value)
+                
+                # Testing with valid and invalid inputs
+                try:
+                    valid_date_model = DateModel(dob=1627849183.0)  # Valid timestamp
+                    print('good', valid_date_model) # good dob=datetime.datetime(2021, 8, 2, 5, 19, 43)
+                except ValidationError as e:
+                    print(e)
+                
+                try:
+                    invalid_date_model = DateModel(dob="not a timestamp")  # Invalid timestamp
+                except ValidationError as e:
+                    print(e) #  incoming date must be a timestamp (type=value_error)
         """)
 
 if __name__ == "__main__":
