@@ -6,7 +6,8 @@ import time
 def load_page():
     # **1. Introduction**
     st.header("What is Pydantic?")
-    st.write("Pydantic is Python Dataclasses with validation, serialization and data transformation functions. So you can use Pydantic to check your data is valid. transform data into the shapes you need, and then serialize the results so they can be moved on to other applications.")
+    st.write("https://medium.com/@marcnealer/a-practical-guide-to-using-pydantic-8aafa7feebf6")
+    st.write("Pydantic v1 is Python Dataclasses with validation, serialization and data transformation functions. So you can use Pydantic to check your data is valid. transform data into the shapes you need, and then serialize the results so they can be moved on to other applications.")
     st.write("**A REALLY Basic example**")
     st.code("""
     from pydantic import BaseModel
@@ -74,13 +75,14 @@ def load_page():
                 print(e)
     """)
 
-    st.write("""## Applying Default Values
-                
+    st.write("""## Applying Default Values""")
+    st.write("""    
                 In a standard Python class, if you define a mutable default argument in the `__init__` method, it leads to the issue of shared mutable defaults.
                 This is a problem and that is with the definition of the list. 
                 If you code a model in this way, only one list object is created and its shared between all instances of this model. 
                 The same happens with dictionaries etc.
              """)
+    
     st.code("""
             class ProblematicModel:
                 def __init__(self, names=[]):
@@ -143,9 +145,14 @@ def load_page():
                     last_name: str = "doe"
         """)
 
-    st.write("""## Field Validation 
+    st.write("""## Field Validation""")
+    st.write("""The example is validating the data before the default validation. 
+    This is really useful as it gives us a chance to change and reformat the data, as well as validating. 
+    In this case I’m expecting a numerical time stamp to be passed. I validate for that and then convert the timestamp to a datetime object. 
+    The default validation is expecting a datetime object. The `@validator` decorator in Pydantic is used to define custom validation logic for model fields. 
+    The `pre=True` argument indicates that the validation function should be run before any other validation logic. 
+    This is particularly useful when you need to preprocess or transform the input data before the standard validation rules are applied.""")
     
-    """)
     st.code("""
                 from pydantic import BaseModel, validator, ValidationError
                 import datetime
@@ -164,7 +171,8 @@ def load_page():
                 
                 class DateModel(BaseModel):
                     dob: datetime.datetime
-                
+
+                    ## Custom validator for the 'dob' field
                     @validator('dob', pre=True)
                     def validate_dob(cls, value):
                         return stamp2date(value)
@@ -181,6 +189,53 @@ def load_page():
                 except ValidationError as e:
                     print(e) #  incoming date must be a timestamp (type=value_error)
         """)
+    st.write("""Multiple validaros can also be achieved.""")
+
+    st.code("""
+                from pydantic import BaseModel, validator, ValidationError
+                import datetime
+                from typing import Any
+                
+                
+                def stamp2date(value: Any) -> datetime.datetime:
+                    if not isinstance(value, (float, int)):  # Allow both float and int for timestamp
+                        raise ValueError("incoming date must be a timestamp")
+                    try:
+                        res = datetime.datetime.fromtimestamp(value)
+                    except ValueError:
+                        raise ValueError("Time stamp appears to be invalid")
+                    return res
+                
+                def one_year(value: datetime.datetime) -> datetime.datetime:
+                    if value < datetime.datetime.today() - datetime.timedelta(days=365):
+                        raise ValueError("the date must be less than a year old")
+                    return value
+                
+                class DateModel(BaseModel):
+                    dob: datetime.datetime
+                
+                    @validator('dob', pre=True)
+                    def validate_dob_pre(cls, value):
+                        return stamp2date(value)
+                    
+                    @validator('dob')
+                    def validate_dob_post(cls, value):
+                        return one_year(value)
+                
+                
+                # Testing with valid and invalid inputs
+                try:
+                    valid_date_model = DateModel(dob=1727849183.0)  # Valid timestamp
+                    print(valid_date_model) # dob=datetime.datetime(2024, 10, 2, 15, 6, 23)
+                except ValidationError as e:
+                    print(e)
+                
+                try:
+                    invalid_date_model = DateModel(dob=1262304000.0)  # Timestamp older than a year
+                except ValidationError as e:
+                    print(e) # the date must be less than a year old (type=value_error)
+                """)
+
 
 if __name__ == "__main__":
     load_page()
